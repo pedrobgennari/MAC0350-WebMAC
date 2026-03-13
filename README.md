@@ -7,7 +7,7 @@
 
 **Descrição:** Este repositório contêm as atividades realizadas no ciclo de WebMAC durante o curso de *Introdução ao Desenvolvimento de Sistemas de Software* (MAC0350 - 2026).
 
-**Atividades:** O diretório *exs* contêm os exercícios realizados em cada aula do curso. O diretório *projeto* contêm o projeto final do ciclo de WebMAC.
+**Atividades:** O diretório *exs* contém os exercícios realizados em cada aula do curso. O diretório *projeto* contém o projeto final do ciclo de WebMAC.
 
 ## Projeto
 
