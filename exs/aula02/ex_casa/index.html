@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Casa - JS Parte 1</title>
+    <link href="Para%20Casa%20-%20JS%20Parte%201_files/css2.css" rel="stylesheet">
+    <style>
+        :root {
+            --background-color: #292827;
+            --surface-color: #363636;
+            --primary-text-color: #e0e0e0;
+            --accent-color-1: #ff690a;
+            --border-color: #444;
+            --code-bg: #404040;
+        }
+        body { font-family: 'Roboto', sans-serif; background-color: var(--background-color); color: var(--primary-text-color); padding: 2rem; max-width: 800px; margin: 0 auto; line-height: 1.6; }
+        h1, h3 { color: var(--accent-color-1); }
+        h1 { border-bottom: 2px solid var(--border-color); padding-bottom: 10px; }
+        .challenge { background-color: var(--surface-color); border: 1px solid var(--border-color); padding: 20px; border-radius: 8px; margin-bottom: 20px; }
+        code { background-color: var(--code-bg); padding: 2px 5px; border-radius: 4px; color: var(--accent-color-1); font-family: monospace; }
+        ul { padding-left: 20px; }
+    
+        button {
+            background-color: var(--code-bg);
+            color: var(--accent-color-1);
+            border: 1px solid var(--accent-color-1);
+            padding: 10px 15px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-top: 15px;
+            transition: all 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Exercícios Casa - Aula 02</h1>
+
+    <h2>1. O Interruptor</h2>
+    <button onclick="alternarLuz()">Alternar Luz</button>
+    <span id="texto-alvo" class="output-text">A luz está APAGADA</span>
+
+    <h2>2. O Multiplicador</h2>
+    <button onclick="dobrar()">Dobrar</button>
+    <span id="valor">2</span>
+
+    <script>
+        function alternarLuz() {
+            const texto = document.querySelector("#texto-alvo");
+            if (texto.innerHTML === "A luz está APAGADA") {
+                texto.innerHTML = "A luz está ACESA"
+            }
+            else {
+                texto.innerHTML = "A luz está APAGADA"
+            }
+        }
+
+        let valor = 2;
+        function dobrar() {
+            const visor = document.querySelector("#valor");
+            valor *= 2;
+            visor.innerHTML = valor;
+
+            if (valor > 100) {
+                alert(`Cuidado, o número ${valor} está ficando muito grande!`)
+            }
+        }
+
+    </script>
+
+</body></html>
