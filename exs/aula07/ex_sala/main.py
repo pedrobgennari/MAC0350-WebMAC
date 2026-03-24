@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from sqlmodel import Session, select, SQLModel, create_engine
 from models import Aluno, Tarefa
 
-arquivo_sqlite = "ex_sala.db"
+arquivo_sqlite = "dados.db"
 url_sqlite = f"sqlite:///{arquivo_sqlite}"
 
 engine = create_engine(url_sqlite)
