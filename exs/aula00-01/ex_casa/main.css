@@ -1,0 +1,113 @@
+A 
+{
+    TEXT-DECORATION: none; 
+    COLOR: #333399;
+}
+
+A:hover
+{
+    TEXT-DECORATION: none;
+    color: #ff6600;
+}
+
+LI 
+{
+    FONT-SIZE: 1rem; 
+    COLOR: #555555;
+    margin-bottom:2vh;
+    margin-left: -1vw;
+}
+
+LI LI
+{
+    FONT-SIZE: 1rem; 
+    COLOR: #555555;
+    margin-bottom:2vh;
+    margin-left: -1vw;
+}
+
+LI A
+{
+    font-size: 100%;
+}
+
+BODY 
+{
+    margin-right: 3vw;
+    margin-left: 3vw;
+    COLOR: #555555;
+    FONT-FAMILY: Verdana, Arial, Helvetica, sans-serif;
+    FONT-SIZE: 1rem;
+    background-color: #f3ebeb;
+} 
+
+P 
+{
+    FONT-SIZE: 1rem; 
+    COLOR: #555555;
+}
+
+P P
+{
+    font-size: 100%;
+}
+
+h1 {font-size: 2rem; COLOR: #1A41A8; margin: 1vh 0px; font-weight: normal;}
+
+h2 {font-size: 1rem; color: #1A41A8; margin: 1vh 0px; font-weight: normal;}
+
+h3 {font-size: 1rem; color: #ff6600; margin: 1vh 0px; font-weight: normal;}
+
+h4
+{
+    color: #808080;
+    font-family: Tahoma;
+    font-size: 90%;
+    margin-bottom: -10px
+}
+
+ul
+{
+    color: #808080;
+    list-style-type:square
+}
+
+
+address { font-size: 1rem; font-family: Verdana, Arial, Helvetica, sans-serif; }
+
+dl { font-size: 1rem; }
+td { font-size: 1rem; }
+th { font-weight: normal; }
+
+hr
+{
+    height: 0.3vh;
+    background-color:black;
+    color:white;
+}
+
+.validator { text-align: right; }
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    margin: 0;
+    padding: 0;
+    background-color: #312c29;
+}
+
+nav ul li{
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a{
+    display: block;
+    padding: 1vh 1vw 1vh 1vw;
+    color: white;
+}
+
+nav ul li a:hover{
+    background-color: rgb(113, 108, 108);
+}
