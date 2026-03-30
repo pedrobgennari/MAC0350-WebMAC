@@ -1,0 +1,20 @@
+<div>
+    <button hx-get="/home/pagina_curtidas"
+            hx-target="main"
+            hx-push-url="true"
+            class="{% if patual == 'curtidas' %}patual{% endif %}">
+        Página Curtidas
+    </button>
+    <button hx-get="/home/pagina_jupiter"
+            hx-target="main"
+            hx-push-url="true"
+            class="{% if patual == 'jupiter' %}patual{% endif %}">
+        Página Júpiter
+    </button>
+    <button hx-get="/home/pagina_professor"
+            hx-target="main"
+            hx-push-url="true"
+            class="{% if patual == 'professor' %}patual{% endif %}">
+        Página Professor
+    </button>
+</div>

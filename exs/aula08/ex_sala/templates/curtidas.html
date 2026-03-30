@@ -1,0 +1,19 @@
+<div id="nav" hx-swap-oob="true">
+    {% include "nav.html" %}
+</div>
+
+<h3>Deixe sua curtida</h3>
+<p>Curtidas: <span id="curtidas">{{ curtidas }}</span></p>
+
+<button hx-post="/curtir"
+        hx-trigger="click"
+        hx-target="#curtidas">
+    Curtir!
+</button>
+
+<button hx-delete="/remover_curtidas"
+        hx-trigger="click"
+        hx-target="#curtidas"
+        hx-confirm="Tem certeza que deseja remover as curtidas?">
+    Remover curtidas
+</button>

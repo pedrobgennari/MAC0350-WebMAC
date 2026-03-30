@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    
+        <style>
+
+            .patual{
+                background-color: red;
+            }
+
+
+        </style>
+    </head>
+    <body>
+
+        <h1>Meu Site</h1>
+        <div id="nav" hx-swap-oob="true">
+            {% include "nav.html" %}
+        </div>
+
+        <hr>
+
+        <main hx-get=" {{ pagina }}"
+              hx-target="main"
+              hx-trigger="load"
+              hx-push-url="true">
+        </main>
+        
+    <div hx-get="/home/pagina_professor"
+         hx-trigger="keyup[shiftKey&&altKey&&(key=='p'||key=='P')] from:body"
+        hx-target="main"
+        hx-push-url="true">
+    </div>
+
+    </body>
+</html>

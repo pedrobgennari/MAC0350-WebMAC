@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="ptbr">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ex Sala - Aulas 00 e 01</title>
+
+        <style>
+            body{
+                font-family: 'Courier New', Courier, monospace;
+
+            }
+
+            .login{
+                margin-left: 7vw;
+            }
+
+            .hbartop{
+                border: 0;
+                height: 5vh;
+                background: linear-gradient(to bottom, #fcb421, #64c4d2 60%);
+            }
+
+            .hbar{
+                border: 0;
+                height: 0.5vh;
+                background: linear-gradient(to right, #1094ab, #64c4d2);
+                margin-left: 0;
+                width: 38vw;
+            }
+
+            form > *{
+                margin-top: 0.5vh;
+                margin-bottom: 0.5vh;
+            }
+
+            form input{
+                width: 36vw;
+            }
+
+            form button{
+                color: white;
+                background-color: #1094ab;
+                border-color: #64c4d2;
+
+                border-radius: 8px;
+            }
+
+            form button:hover{
+                color: black;
+                background-color: #fcb421;
+                border-color: black;
+            }
+
+            footer{
+                text-align: center;
+                font-size: 0.625rem;
+                margin-top: 20vh;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div id="nav" hx-swap-oob="true">
+            {% include "nav.html" %}
+        </div>
+        
+        <img src="/static/usp-logo.png">
+        <img src="/static/usp-logo-texto.png">
+
+<hr class="hbartop">
+
+        <div class="login">
+        
+            <h2>Login</h2>
+
+            <hr class="hbar">
+            <form>
+                <input type="text" placeholder="Usuário">
+                <br>
+                <input type="password" placeholder="Senha">
+                <br>
+                <button>Entrar</button>
+            </form>
+            
+            
+            <hr class="hbar">
+        </div>
+
+    </body>
+
+    <footer>
+
+        <p><a href="https://uspdigital.usp.br/jupiterweb/creditos.jsp">Créditos</a> | <a href="https://uspdigital.usp.br/jupiterweb/jupColegiadoEmailLista">Fale conosco</a></p>
+        <p>© 1999 - 2026 - Superintendência de Tecnologia da Informação/USP</p>
+
+    </footer>
+
+</html>
