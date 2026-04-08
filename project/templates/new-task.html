@@ -1,0 +1,12 @@
+<h3>Nova Tarefa</h3>
+<form hx-post="/newtask"
+      hx-target="#mensagem"
+      hx-swap="beforeend">
+    <input type="text" name="name" placeholder="Nome" required>
+    <input type="text" name="description" placeholder="Descrição" required>
+    <input type="date" name="date" required>
+    <br>
+    <button type="submit">Salvar Tarefa</button>
+</form>
+
+<div id="mensagem"></div>

@@ -1,0 +1,14 @@
+<h3>Atualizar Tarefa</h3>
+<form hx-put="/updatetask"
+      hx-target="#mensagem"
+      hx-swap="beforeend">
+    <input type="number" name="id" placeholder="ID" required>
+    <br>
+    <input type="text" name="newName" placeholder="Novo nome">
+    <input type="text" name="newDescription" placeholder="Nova descrição">
+    <input type="date" name="newDate" placeholder="Nova data">
+    <br>
+    <button type="submit">Atualizar Tarefa</button>
+</form>
+
+<div id="mensagem"></div>

@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{{ day }}/{{ month }}/{{ year }}</title>
+
+        <link href="/static/main.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Sign Up</a></li>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+            </ul>
+	    </nav>
+    
+        <h1> Calendário de {{ username }}</h1>
+        
+        <div id="calendar">
+            <h3> {{ '{:02d}/{:4d}'.format(month, year) }} </h3>
+            <nav>
+                <button hx-get="/calendar?month={{ month - 1 if month > 1 else 12 }}&year={{ year if month > 1 else year - 1 }}"
+                        hx-select="#calendar"
+                        hx-target="#calendar">
+                    &larr;
+                </button>
+                <button hx-get="/calendar?month={{ 1 if month > 11 else month + 1 }}&year={{ year + 1 if month > 11 else year }}"
+                        hx-select="#calendar"
+                        hx-target="#calendar">
+                    &rarr;
+                </button>
+                <button hx-get="/calendar?month={{ month }}&year={{ year }}"
+                        hx-select="#calendar"
+                        hx-target="#calendar">
+                    &#10227;
+                </button>
+            </nav>
+
+            <div id="month">
+                
+                {% for day in days %}
+                    <div>{{ day }}</div>
+                {% endfor %}
+                
+                {% for day in range(days_in_month + first_weekday + ((7-(first_weekday+days_in_month)%7))%7) %}
+                    {% if days_in_month + first_weekday > day >= first_weekday %}
+                        <div class="day-in-month" hx-get="/tasklist?date={{ '{:4d}-{:02d}-{:02d}'.format(year, month, day-first_weekday+1) }}&tasks_per_page=100"
+                                                  hx-select="#list"
+                                                  hx-target="#list"
+                                                  {% if day-first_weekday+1 == current_day and
+                                                        month == current_month and
+                                                        year == current_year %}
+                                                    id="today"
+                                                  {% endif %}>
+                            {{ day-first_weekday+1 }}
+                            <div class="day-tasks">
+                                {% for task in tasks %}
+                                    {% if task.date.year == year and 
+                                          task.date.month == month and 
+                                          task.date.day == day-first_weekday+1 %}
+                                        <span class="circle-task">&#9672;</span>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                    {% else %}
+                        <div class="day-off-month"></div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+
+        <hr class="hbar">
+
+        <div id="task-list">
+            <button hx-get="/tasklist"
+                hx-target="main">
+                Lista de Tarefas
+            </button>
+
+            <button hx-get="/newtask"
+                    hx-target="main">
+                    Adicionar Tarefas
+            </button>
+
+            <button hx-get="/updatetask"
+                    hx-target="main">
+                    Atualizar Tarefas
+            </button>
+
+            <button hx-get="/deletetask"
+                    hx-target="main">
+                    Remover Tarefas
+            </button>
+
+            <main hx-get="/tasklist"
+                hx-target="main"
+                hx-trigger="load">
+            </main>
+        </div>
+    </body>
+</html>
+

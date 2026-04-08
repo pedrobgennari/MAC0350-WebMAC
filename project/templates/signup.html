@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Login</title>
+
+        <link href="/static/main.css" rel="stylesheet">
+
+        <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.js" integrity="sha384-ezjq8118wdwdRMj+nX4bevEi+cDLTbhLAeFF688VK8tPDGeLUe0WoY2MZtSla72F" crossorigin="anonymous"></script>
+    </head>
+    <body>
+        <nav>
+            <ul>
+                <li><a href="/">Sign Up</a></li>
+                <li><a href="/login">Log In</a></li>
+                <li><a href="/calendar">Calendar</a></li>
+            </ul>
+	    </nav>
+
+        <div class="signup-login">
+            <h1 class="signup">Sign Up</h1>
+            <form>
+                <hr class="hbar">
+                <input id="name" type="text" placeholder="Usuário">
+                <br>
+                <input id="password" type="password" placeholder="Senha">
+                <br>
+                <button onclick="signup()">Sign Up</button>
+                <hr class="hbar">
+            </form>
+        </div>
+        
+        <script src="/static/main.js"></script>
+    </body>
+</html>

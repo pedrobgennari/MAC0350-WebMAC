@@ -1,0 +1,46 @@
+<div>
+    <input class="Search"
+           type="text" 
+           name="name" 
+           placeholder="Buscar..."
+           hx-get="/tasklist"
+           hx-trigger="input changed delay:500ms"
+           hx-select="#list"
+           hx-target="#list"
+           hx-indicator="#indicator">
+
+    <span id="indicator" class="htmx-indicator">Carregando...</span>
+</div>
+<div id="list">
+    {% for task in tasklist %}
+        <div class="task">
+            <details>
+            <summary>{{ task.name }} [{{ task.id }}]</summary>
+            <ul>
+                <li>Descrição: {{ task.description }}</li>
+                <li>Data: {{ task.date.day }}/{{ task.date.month }}/{{ task.date.year }}</li>
+            </ul>
+            </details>
+        </div>
+    {% else %}
+        <h6>Não há Tarefas &#9786;</h6>
+    {% endfor %}
+
+    <button 
+        hx-get="/tasklist?page={{ page - 1 }}"
+        hx-select="#list"
+        hx-target="#list"
+        {% if page <= 1 %} disabled {% endif %}>
+        Anterior
+    </button>
+
+    <button 
+        hx-get="/tasklist?page={{ page + 1 }}"
+        hx-select="#list"
+        hx-target="#list"
+        {% if page >= last_page %} disabled {% endif %}>
+        Próximo
+    </button>
+</div>
+
+
