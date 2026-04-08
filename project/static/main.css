@@ -1,0 +1,152 @@
+/* Transitions */
+
+@view-transition {
+    navigation: auto;
+}
+
+body{
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #64c4d2;
+    font-size: 1.2rem;
+}
+
+/* SigUp & LogIn */
+
+.signup-login{
+    display: grid;
+    justify-content: center;
+    margin-top: 20vh;
+}
+
+.signup{
+    display: grid;
+    justify-content: left;
+    
+}
+
+.login{
+    display: grid;
+    justify-content: left;
+}
+
+.hbar{
+    border: 0;
+    height: 0.5vh;
+    background: linear-gradient(to right, #312c29, #4f4f4d);
+    margin-left: 0;
+}
+
+form > *{
+    margin-top: 0.5vh;
+    margin-bottom: 0.5vh;
+}
+
+button{
+    color: white;
+    background-color: #312c29;
+    border-color: #312c29;
+
+    border-radius: 1vh;
+}
+
+button:hover{
+    color: white;
+    background-color: rgb(113, 108, 108);
+    border-color: black;
+}
+
+button:disabled{
+    border: none;
+    color: white;
+    background-color: #5f5d5b;
+    border-color: #5f5d5b;
+
+    border-radius: 1vh;
+}
+
+footer{
+    text-align: center;
+    font-size: 0.625rem;
+    margin-top: 20vh;
+}
+
+/* Nav Bar */
+
+nav ul{
+    list-style-type: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0 5vw;
+    padding: 0;
+    background-color: #312c29;
+}
+
+nav ul li a{
+    display: block;
+    margin: 0 2vw;
+    padding: 1vh 1vw;
+    color: white;
+}
+
+nav ul li a:hover{
+    background-color: rgb(113, 108, 108);
+}
+
+/* Calendar */
+
+#month{
+    display: grid;
+    grid-template-columns: repeat(7, 14vw);
+}
+
+.day-in-month{
+    border: 1px solid black;
+    height: 14vh;    
+    background-color: whitesmoke;/*rgb(238, 183, 179);*/
+    position: relative;
+}
+.day-off-month{
+    border: 1px solid black;
+    height: 14vh;
+    background-color: darkgrey;
+}
+
+.add-task{
+    border: 0.5px solid black;
+    border-radius: 1px;
+    background-color:rgb(118, 176, 192);
+    color: aliceblue;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 1px;
+    text-align: center;
+    
+}
+
+/* List */
+
+.Search{
+    margin-top: 1vw;
+}
+
+.task{
+    border: 1px solid #1094AB;
+    border-radius: 3px;
+    margin: 1vh 1vw;
+}
+
+.task summary{
+    background-color: #1094AB;
+    padding: 1vh 1vw;
+}
+
+.task ul{
+    background-color: #e0c793;
+    margin: 0;
+}
+
+#today{
+    background-color: #fcb421;/*rgb(238, 183, 179);*/
+}
