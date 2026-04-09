@@ -53,12 +53,12 @@ async def login(request: Request):
 async def send_login(user: User, response: Response):
     with Session(engine) as session:
         query = select(User).where(User.name == user.name).where(User.password == user.password)
-        user = session.exec(query).first()
+        found_user = session.exec(query).first()
     
-    if not user:
+    if not found_user:
         raise HTTPException(status_code=404, detail="Usuário não encontrado")
     
-    response.set_cookie(key="session_user", value=user.name)
+    response.set_cookie(key="session_user", value=found_user.name)
     return {"message": "Logado com sucesso"}
 
 # Create New User
@@ -67,13 +67,11 @@ async def create_user(user: User):
     with Session(engine) as session:
         query = select(User).where(User.name == user.name)
         if session.exec(query).first():
-            print("\nND\n")
             return {"message": "Nome de usuário não disponível"}
         
         session.add(user)
         session.commit()
         session.refresh(user)
-        print("\ncriado\n")
         return {"message": "Usuário criado!"}
 
 # Get Current Active User
@@ -96,10 +94,10 @@ def get_active_user(session_user: Annotated[str | None, Cookie()] = None):
 ########
 
 # Search for Tasks
-def search_tasks(id: int = None,
+def search_tasks(id: int | None = None,
                  name = '',
                  date = None,
-                 user: User = None):
+                 user: User | None = None):
     with Session(engine) as session:
         query = select(Task).where(col(Task.name).contains(name))
         if date: query = query.where(Task.date == date)
@@ -127,11 +125,11 @@ async def get_user_tasks(request: Request,
 
 # Create New Task
 @app.get("/newtask")
-async def edit_tasks(request: Request):
+async def new(request: Request):
     return templates.TemplateResponse(request, "new-task.html")
 
 @app.post("/newtask", response_class=HTMLResponse)
-async def create_task(name: str = Form(...),
+async def new_tasks(name: str = Form(...),
                 description: str = Form(...),
                 date: date = Form(...),
                 user: User = Depends(get_active_user)):
@@ -146,7 +144,7 @@ async def create_task(name: str = Form(...),
 
 # Update task
 @app.get("/updatetask")
-async def edit_tasks(request: Request):
+async def update(request: Request):
     return templates.TemplateResponse(request, "update-task.html")
 
 @app.put("/updatetask", response_class=HTMLResponse)
@@ -172,11 +170,11 @@ async def update_task(id: int = Form(...),
 
 # Delete task
 @app.get("/deletetask")
-async def edit_tasks(request: Request):
+async def delete(request: Request):
     return templates.TemplateResponse(request, "delete-task.html")
 
 @app.delete("/deletetask", response_class=HTMLResponse)
-async def deletar_aluno(id: int, user: User = Depends(get_active_user)):
+async def delete_tasks(id: int, user: User = Depends(get_active_user)):
     with Session(engine) as session:
         query = select(Task).where(Task.id == id).where(Task.user_id == user.id)
         task = session.exec(query).first()
